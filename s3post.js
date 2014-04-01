@@ -29,7 +29,7 @@ Policy.prototype.getConditionValueByKey = function(key){
 	return condition;
 }
 
-var S3Form = function(awsCofig){	
+var S3Form = function(policy){	
 	if(policy instanceof Policy)
 		this.policy = policy;
 	else{
@@ -59,12 +59,12 @@ S3Form.prototype.generateS3FormFields = function() {
 	
 	return formFields;	
 }
-
-S3Form.prototype.addHiddenField = hiddenField;
-
 var hiddenField = function(fieldName, value) {
 	return {name: fieldName, value : value};
 }
+S3Form.prototype.addHiddenField = hiddenField;
+
+
 
 exports.Policy = Policy; // usage: policy = new Policy(policyData);
 exports.S3Form = S3Form; // usage: s3Form = new S3Form(awsConfig, policy);
