@@ -22,12 +22,12 @@ var task = function(request, callback){
 	var fields = s3Form.generateS3FormFieldsWithCredentials(awsConfig);
 
 	//fields = fields.concat(s3Form.generateS3CredientalsFields(awsConfig));
-
+	
 
 	//4. get bucket name
-	var bucket = policy.getConditionValueByKey("bucket");
+	var bucket = policy.getConditionValueByKey("bucket");	
 
-	callback(null, {template: INDEX_TEMPLATE,
+	callback(null, {template: INDEX_TEMPLATE, 
 		params:{fields:fields, bucket:bucket}
 	});
 }
